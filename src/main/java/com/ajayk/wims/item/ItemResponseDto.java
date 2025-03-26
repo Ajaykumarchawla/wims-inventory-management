@@ -13,7 +13,7 @@ public class ItemResponseDto {
     private String itemDescription;
     private String itemCategory;
     private BigDecimal itemPrice;
-    private String itemQuantity;
+    private Integer itemQuantity;
     private String itemLocation;
 
     private LocalDateTime createdAt;

@@ -1,5 +1,6 @@
 package com.ajayk.wims.item;
 
+import com.ajayk.wims.exception.ItemNotFoundException;
 import com.ajayk.wims.util.MapperUtil;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -25,7 +26,7 @@ public class ItemServiceImp implements ItemService{
 
     @Override
     public ItemResponseDto getById(Long id) {
-        return mapperUtil.toItemResponseDto(itemRepository.findById(id).orElseThrow(()-> new EntityNotFoundException("Item not Found")));
+        return mapperUtil.toItemResponseDto(itemRepository.findById(id).orElseThrow(()-> new ItemNotFoundException("Item not Found")));
     }
 
     @Override

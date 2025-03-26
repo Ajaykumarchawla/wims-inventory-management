@@ -1,7 +1,9 @@
 package com.ajayk.wims.item;
 
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,14 +30,12 @@ public class ItemController {
 
 
     @PostMapping
-    public ResponseEntity<ItemResponseDto> createItem(@RequestBody ItemRequestDto requestDto) {
+    public ResponseEntity<ItemResponseDto> createItem(@Valid @RequestBody ItemRequestDto requestDto) {
         return new ResponseEntity<>(itemService.createItem(requestDto), HttpStatus.CREATED);
     }
 
-
-
     @PutMapping("/{id}")
-    public ResponseEntity<ItemResponseDto> updateItem(@PathVariable Long id,@RequestBody ItemRequestDto requestDto) {
+    public ResponseEntity<ItemResponseDto> updateItem(@PathVariable Long id,@Valid @RequestBody ItemRequestDto requestDto) {
         return ResponseEntity.ok(itemService.updateItem(id,requestDto));
     }
 

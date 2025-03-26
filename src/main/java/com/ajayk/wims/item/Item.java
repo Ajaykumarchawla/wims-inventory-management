@@ -31,7 +31,7 @@ public class Item {
     private BigDecimal itemPrice;
 
     @Column(nullable = false)
-    private String itemQuantity;
+    private Integer itemQuantity;
     private String itemLocation;
 
     private LocalDateTime createdAt;
